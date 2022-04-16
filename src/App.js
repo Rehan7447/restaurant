@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Login from "./Pages/LoginPage/login";
+import SignUp from "./Pages/SignupPage/signUp";
+import LandingPage from "./Pages/LandgingPage/landingPage";
+import Header from "./components/header/header";
+import AllRestaurants from "./Pages/customerPages/allRestaurants/allRestaurants";
+import Restaurant from "./Pages/customerPages/Restauraunt/restaurant";
+import Order from "./Pages/customerPages/orderPage/order";
+import OrderHistory from "./Pages/customerPages/orderHistory/orderHistory";
+import OrderTracking from "./Pages/customerPages/orderTracking/orderTracking";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Router>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signUp" element={<SignUp />} />
+          <Route path="/allRestaurants" element={<AllRestaurants />} />
+          <Route path="/restarauntMenu" element={<Restaurant />} />
+          <Route path="/order" element={<Order />} />
+          <Route path="/orderHistory" element={<OrderHistory />} />
+          <Route path="/orderTracking" element={<OrderTracking />} />
+        </Routes>
+      </Router>
     </div>
   );
 }

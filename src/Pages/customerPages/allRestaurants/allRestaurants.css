@@ -1,0 +1,13 @@
+.allRestaurantsMain h1 {
+  margin: 30px auto;
+  text-align: center;
+}
+
+.allRestaurants{
+    width: 90%;
+    margin: auto;
+}
+
+.restaurantCard{
+    margin: 20px 0;
+}

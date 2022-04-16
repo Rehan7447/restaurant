@@ -1,0 +1,27 @@
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  box-shadow: 0px 11px 12px -7px rgba(0, 0, 0, 0.2);
+  background-color: white;
+}
+
+nav a {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-logo {
+  font-size: 1.3rem;
+}
+
+.nav-links{
+    margin:5px 0 0;
+}
+
+.nav-links a {
+  margin: auto 10px;
+}
