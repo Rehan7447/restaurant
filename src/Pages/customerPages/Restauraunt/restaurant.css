@@ -1,0 +1,41 @@
+.bannerDiv {
+  background-image: url("../../../assets/burger.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 15%;
+  min-height: 250px;
+  max-height: 500px;
+}
+
+.menuHeading {
+  font-size: 5rem;
+  padding: 10px 20px;
+  background-color: rgb(246, 246, 246);
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.menuContent {
+  background-color: rgb(246, 246, 246);
+}
+
+.menuContent h1 {
+  text-align: center;
+}
+
+.menuCategory {
+  background-color: white;
+  margin: 10px 20px;
+}
+
+.menuCategory h3 {
+  text-transform: capitalize;
+  margin: 30px 5px;
+}
+
+.cart {
+  padding: 10px;
+  position: fixed;
+  right: 0;
+  top: 10%;
+}

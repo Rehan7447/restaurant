@@ -1,0 +1,23 @@
+.cartHeadind {
+  text-align: center;
+}
+
+.cartItem {
+  background-color: rgba(226, 224, 224, 0.395);
+  padding: 10px;
+  margin: 5px;
+  border-radius: 10px;
+}
+
+.cartFooter button {
+  width: 100%;
+  color: white;
+}
+
+
+.menuMain{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
