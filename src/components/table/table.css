@@ -1,0 +1,12 @@
+.customTable {
+  height: 500px;
+  width: 100%;
+}
+
+.detailsButton, .detailsButton:hover{
+    color: white;
+}
+
+.detailsButton{
+    opacity: 0.8;
+}

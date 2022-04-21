@@ -39,3 +39,8 @@
   right: 0;
   top: 10%;
 }
+
+.cartContent{
+  max-height: 500px;
+  overflow-y: scroll;
+}

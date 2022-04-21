@@ -1,0 +1,9 @@
+.orderContentTotal{
+    padding: 10px 20px;
+    color: white;
+    border-radius: 10px;
+}
+
+.orderContentTotal:hover{
+    color: white;
+}

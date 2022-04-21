@@ -1,3 +1,11 @@
+import MyTable from "../../../components/table/table";
+import "./orderHistory.css"
+
 export default function OrderHistory() {
-  return <div>this is order history page</div>;
+  return (
+    <div className="orderHistoryMain container-fluid" >
+      <h1 className="orderHistoryHeading" >Order History</h1>
+      <MyTable />
+    </div>
+  );
 }

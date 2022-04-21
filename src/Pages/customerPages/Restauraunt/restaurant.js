@@ -1,6 +1,7 @@
 import Cart from "../../../components/cart/cart";
 import MenuCard from "../../../components/menuCards/menu";
 import "./restaurant.css";
+import { useEffect, useState } from "react";
 
 const data = [
   {
@@ -64,8 +65,38 @@ const data = [
 ];
 
 export default function Restaurant() {
+  const [cart, setCart] = useState([]);
+
+  useEffect(() => {
+    if (localStorage.getItem("cart")) {
+      setCart(JSON.parse(localStorage.getItem("cart")));
+    }
+  }, [setCart]);
+
+  function addToCart(item) {
+    const cartItem = {
+      name: item.name,
+      price: item.price,
+      quantity: 1,
+    };
+    //array of our food items
+    var tempCart = cart;
+    var check = false;
+    for (let i = 0; i < tempCart.length; i++) {
+      if (cartItem.name === tempCart[i].name) {
+        tempCart[i].quantity += 1;
+        check = true;
+      }
+    }
+    if (check === false) {
+      tempCart.push(cartItem);
+    }
+    setCart(tempCart);
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }
+
   return (
-    <div className="menuMain row">
+    <div className="menuMain row container-fluid">
       <div className="menu col-md-9">
         <div className="bannerDiv"></div>
         <div className="menuHeading">
@@ -74,14 +105,20 @@ export default function Restaurant() {
         <div className="menuContent">
           <h1>Menu</h1>
           <div>
-            {data.map((item) => {
+            {data.map((item, i) => {
               return (
-                <div className="menuCategory">
+                <div className="menuCategory" key={i}>
                   <h3>{item.category}</h3>
                   <div className="row">
-                    {item.items.map((menuItem) => {
+                    {item.items.map((menuItem, j) => {
                       return (
-                        <div className="col-md-3 col-sm-6 col-12">
+                        <div
+                          className="col-md-3 col-sm-6 col-12"
+                          key={j}
+                          onClick={() => {
+                            addToCart(menuItem);
+                          }}
+                        >
                           <MenuCard
                             name={menuItem.name}
                             image={menuItem.img}
