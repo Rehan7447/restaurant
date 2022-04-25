@@ -9,6 +9,7 @@ import Restaurant from "./Pages/customerPages/Restauraunt/restaurant";
 import Order from "./Pages/customerPages/orderPage/order";
 import OrderHistory from "./Pages/customerPages/orderHistory/orderHistory";
 import OrderTracking from "./Pages/customerPages/orderTracking/orderTracking";
+import RestaurantMenu from "./Pages/restaurantPages/menuPage/menu";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/order" element={<Order />} />
           <Route path="/orderHistory" element={<OrderHistory />} />
           <Route path="/orderTracking" element={<OrderTracking />} />
+          <Route path="/restaurantMenuEdit" element={<RestaurantMenu />} />
         </Routes>
       </Router>
     </div>

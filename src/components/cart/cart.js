@@ -6,17 +6,22 @@ export default function Cart() {
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
   const navigate = useNavigate();
+  const [empty, setEmpty] = useState(true);
 
   useEffect(() => {
-    //getting all items of cart from localstorage
-    var tempCart = localStorage.getItem("cart");
-    //converting the tempCart to Json using JSON.parse and then storing it inside the cart hook
-    setCart(JSON.parse(tempCart));
-    let temp = 0;
-    for (let i = 0; i < cart.length; i++) {
-      temp = temp + parseInt(cart[i].price) * parseInt(cart[i].quantity);
+    if (localStorage.getItem("cart")) {
+      //getting all items of cart from localstorage
+      var tempCart = localStorage.getItem("cart");
+      //converting the tempCart to Json using JSON.parse and then storing it inside the cart hook
+      setCart(JSON.parse(tempCart));
+      setEmpty(false)
+      let temp = 0;
+      for (let i = 0; i < cart.length; i++) {
+        temp = temp + parseInt(cart[i].price) * parseInt(cart[i].quantity);
+      }
+      setTotal(temp);
     }
-    setTotal(temp);
+
   }, [cart, setCart, setTotal]);
 
   return (
@@ -25,7 +30,7 @@ export default function Cart() {
         <h2 className="cartHeadind">Cart</h2>
 
         <div className="cartContent" >
-          {cart.map((item, i) => {
+          {!empty ? cart.map((item, i) => {
             return (
               <div className="cartItem">
                 <h6>Item {i + 1}: </h6>
@@ -37,8 +42,8 @@ export default function Cart() {
                   </p>
                 </div>
               </div>
-            );
-          })}
+            )
+          }) : <div><h4 style={{ textAlign: "center", margin: "20px auto" }} >Your cart is empty!</h4></div>}
         </div>
 
         <hr />

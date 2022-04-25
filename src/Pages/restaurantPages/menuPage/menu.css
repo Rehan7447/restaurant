@@ -1,0 +1,14 @@
+.editMenuControls {
+  background-color: rgb(246, 246, 246);
+  margin: 10px auto;
+  padding: 3%;
+}
+
+.menuEditingButtons button{
+    background-color: white;
+}
+
+.menuEditingButtons button:hover{
+    background-color: rgb(237, 237, 237);
+}
+

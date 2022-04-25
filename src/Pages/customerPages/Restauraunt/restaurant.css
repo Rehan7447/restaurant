@@ -2,6 +2,7 @@
   background-image: url("../../../assets/burger.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   height: 15%;
   min-height: 250px;
   max-height: 500px;

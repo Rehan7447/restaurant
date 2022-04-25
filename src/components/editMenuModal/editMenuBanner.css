@@ -1,0 +1,13 @@
+.modalBannerImage{
+    margin: auto auto 20px;
+    text-align: center;
+}
+
+.modalBannerImage h3{
+    text-align: left;
+}
+
+.modalBannerImage img{
+    width: 100%;
+    max-width: 500px;
+}
