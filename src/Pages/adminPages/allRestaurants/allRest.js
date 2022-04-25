@@ -1,24 +1,23 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import CustomModal from "../../../components/orderDetailModal/modal";
+import RequestModal from "../../../components/restaurantRequest/requestModal";
 import MyTable from "../../../components/table/table";
-import "./orderHistory.css";
 
-export default function OrderHistory() {
+export default function AllRest() {
   const navigate = useNavigate();
   useEffect(() => {
-    if (!localStorage.getItem("user")) {
+    if (!localStorage.getItem("admin")) {
       navigate("/login");
     }
   });
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
     { field: "Date", headerName: "Date", width: 150 },
-    { field: "Resturant_Name", headerName: "Restaurant Name", width: 500 },
-    { field: "Total_Price", headerName: "Total Price", width: 200 },
+    { field: "Restaurant_Name", headerName: "Restaurant Name", width: 300 },
+    { field: "Address", headerName: "Address", width: 500 },
     {
-      field: "Status",
-      headerName: "Status",
+      field: "Request",
+      headerName: "Request",
       width: 200,
     },
     {
@@ -36,7 +35,7 @@ export default function OrderHistory() {
               setShow(!show);
             }}
           >
-            View Details
+            Review
           </button>
         );
       },
@@ -46,47 +45,47 @@ export default function OrderHistory() {
   const rows = [
     {
       id: 1,
-      Date: "1/4/2022",
-      Resturant_Name: "Resturant1",
-      Total_Price: "$30",
-      Status: "On its Way",
+      Date: "12/4/2022",
+      Restaurant_Name: "The Global Diners",
+      Address: "0 street, imagine town, Blury County",
+      Request: "Pending",
     },
     {
       id: 2,
       Date: "12/4/2022",
-      Resturant_Name: "Resturant2",
-      Total_Price: "$30",
-      Status: "delivered",
+      Restaurant_Name: "The Halal Restaurant",
+      Address: "0 street, imagine town, Blury County",
+      Request: "Accepted",
     },
     {
       id: 3,
-      Date: "13/4/2022",
-      Resturant_Name: "Resturant3",
-      Total_Price: "$30",
-      Status: "delivered",
+      Date: "12/4/2022",
+      Restaurant_Name: "The Asian Cuisine",
+      Address: "0 street, imagine town, Blury County",
+      Request: "Accepted",
     },
     {
       id: 4,
-      Date: "14/4/2022",
-      Resturant_Name: "Resturant4",
-      Total_Price: "$30",
-      Status: "delivered",
-    },
-    {
-      id: 5,
-      Date: "15/4/2022",
-      Resturant_Name: "Resturant5",
-      Total_Price: "$30",
-      Status: "delivered",
+      Date: "12/4/2022",
+      Restaurant_Name: "Continental's Home",
+      Address: "0 street, imagine town, Blury County",
+      Request: "Rejected",
     },
   ];
   const [show, setShow] = useState(false);
   const [currData, setCurrData] = useState({});
+  const showModal = () => {
+    setShow(!show);
+  };
   return (
     <div>
-      {show ? <CustomModal show={show} data={currData} /> : <></>}
+      {show ? (
+        <RequestModal show={show} data={currData} showModal={showModal} />
+      ) : (
+        <></>
+      )}
       <div className="orderHistoryMain container-fluid">
-        <h1 className="orderHistoryHeading">Order History</h1>
+        <h1 className="orderHistoryHeading">All Restaurants</h1>
         <MyTable rows={rows} columns={columns} />
       </div>
     </div>

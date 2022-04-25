@@ -2,6 +2,7 @@ import Cart from "../../../components/cart/cart";
 import MenuCard from "../../../components/menuCards/menu";
 import "./restaurant.css";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const data = [
   {
@@ -65,6 +66,13 @@ const data = [
 ];
 
 export default function Restaurant() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!localStorage.getItem("user")) {
+      navigate("/login");
+    }
+  });
+
   const [cart, setCart] = useState([]);
 
   useEffect(() => {

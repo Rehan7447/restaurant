@@ -1,0 +1,18 @@
+.signupMain{
+    margin: 3% auto;
+  width: 50%;
+  background-color: rgb(97, 136, 252);
+  padding: 5%;
+  border-radius: 10px;
+  color: white !important;
+}
+
+.signupSubmit{
+    background-color: rgb(181, 199, 255);
+    color: white;
+}
+
+.signupSubmit:hover{
+    color: wheat;
+    background-color: rgb(142, 170, 255);
+}

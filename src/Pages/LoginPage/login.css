@@ -1,7 +1,13 @@
 .mainLoginDiv {
-  margin: auto;
+  margin: 5% auto 2%;
+  width: 50%;
+  background-color: rgb(98, 132, 236);
+  padding: 5%;
+  border-radius: 10px;
+  color: white !important;
 }
 
-.loginForm {
-  width: 50%;
+.loginResgisterRest{
+  text-align: center;
+  margin: 0 auto;
 }

@@ -1,20 +1,20 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CustomModal from "../../../components/orderDetailModal/modal";
+import DetailModal from "../../../components/orderDetailsRest/details";
 import MyTable from "../../../components/table/table";
-import "./orderHistory.css";
 
-export default function OrderHistory() {
+export default function AllRestOrders() {
   const navigate = useNavigate();
   useEffect(() => {
-    if (!localStorage.getItem("user")) {
+    if (!localStorage.getItem("restaurant")) {
       navigate("/login");
     }
   });
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
     { field: "Date", headerName: "Date", width: 150 },
-    { field: "Resturant_Name", headerName: "Restaurant Name", width: 500 },
+    { field: "Customer_Name", headerName: "Customer Name", width: 500 },
     { field: "Total_Price", headerName: "Total Price", width: 200 },
     {
       field: "Status",
@@ -46,47 +46,49 @@ export default function OrderHistory() {
   const rows = [
     {
       id: 1,
-      Date: "1/4/2022",
-      Resturant_Name: "Resturant1",
-      Total_Price: "$30",
-      Status: "On its Way",
+      Date: "12/4/2022",
+      Customer_Name: "Ali",
+      Total_Price: "$50",
+      Status: "New",
+      Address: "0 street, imagine town, Blury County",
+      OrderStatus: "Ready",
+      DeliveryStatus: "Pending",
     },
     {
       id: 2,
-      Date: "12/4/2022",
-      Resturant_Name: "Resturant2",
-      Total_Price: "$30",
-      Status: "delivered",
+      Date: "02/4/2022",
+      Customer_Name: "Ahmed",
+      Total_Price: "$80",
+      Status: "Delivered",
+      Address: "0 street, imagine town, Blury County",
+      OrderStatus: "Delivered",
+      DeliveryStatus: "Delivered",
     },
     {
-      id: 3,
-      Date: "13/4/2022",
-      Resturant_Name: "Resturant3",
+      id: 2,
+      Date: "09/5/2022",
+      Customer_Name: "Sara",
       Total_Price: "$30",
-      Status: "delivered",
-    },
-    {
-      id: 4,
-      Date: "14/4/2022",
-      Resturant_Name: "Resturant4",
-      Total_Price: "$30",
-      Status: "delivered",
-    },
-    {
-      id: 5,
-      Date: "15/4/2022",
-      Resturant_Name: "Resturant5",
-      Total_Price: "$30",
-      Status: "delivered",
+      Status: "Delivered",
+      Address: "0 street, imagine town, Blury County",
+      OrderStatus: "Delivered",
+      DeliveryStatus: "Delivered",
     },
   ];
   const [show, setShow] = useState(false);
   const [currData, setCurrData] = useState({});
+  const showModal = () => {
+    setShow(!show);
+  };
   return (
     <div>
-      {show ? <CustomModal show={show} data={currData} /> : <></>}
+      {show ? (
+        <DetailModal show={show} data={currData} showModal={showModal} />
+      ) : (
+        <></>
+      )}
       <div className="orderHistoryMain container-fluid">
-        <h1 className="orderHistoryHeading">Order History</h1>
+        <h1 className="orderHistoryHeading">All Orders</h1>
         <MyTable rows={rows} columns={columns} />
       </div>
     </div>

@@ -1,9 +1,16 @@
 import { GoogleMap, useLoadScript } from "@react-google-maps/api";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ContentOrderCust from "../../../components/orderContentCust/content";
 
 import "./order.css";
 export default function Order() {
+  useEffect(() => {
+    if (!localStorage.getItem("user")) {
+      navigate("/login");
+    }
+  });
+
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: "",
   });

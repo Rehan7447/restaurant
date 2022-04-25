@@ -1,7 +1,15 @@
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import CustomCard from "../../../components/card/card";
 import "./allRestaurants.css";
 
 export default function AllRestaurants() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!localStorage.getItem("user")) {
+      navigate("/login");
+    }
+  });
   //restauraunts information data
   const data = [
     {

@@ -1,8 +1,20 @@
 import "./landingPage.css";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function LandingPage() {
   const navigate = useNavigate();
+  useEffect(() => {
+    if (
+      !(
+        localStorage.getItem("user") ||
+        localStorage.getItem("admin") ||
+        localStorage.getItem("restaurant")
+      )
+    ) {
+      navigate("/login");
+    }
+  });
   return (
     <div>
       <div className="landingBanner">

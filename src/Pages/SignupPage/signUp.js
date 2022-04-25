@@ -1,6 +1,7 @@
+import "./signUp.css"
 export default function SignUp() {
   return (
-    <div>
+    <div className="signupMain" >
       <form>
         <div className="mb-3">
           <label for="exampleInputEmail1" className="form-label">
@@ -12,9 +13,6 @@ export default function SignUp() {
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
           />
-          <div id="emailHelp" className="form-text">
-            We'll never share your email with anyone else.
-          </div>
         </div>
         <div className="mb-3">
           <label for="exampleInputEmail1" className="form-label">
@@ -26,9 +24,17 @@ export default function SignUp() {
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
           />
-          <div id="emailHelp" className="form-text">
-            We'll never share your email with anyone else.
-          </div>
+        </div>
+        <div className="mb-3">
+          <label for="exampleInputEmail1" className="form-label">
+            Physical Address
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
         </div>
         <div className="mb-3">
           <label for="exampleInputPassword1" className="form-label">
@@ -40,18 +46,23 @@ export default function SignUp() {
             id="exampleInputPassword1"
           />
         </div>
-        <div className="mb-3 form-check">
-          <input
-            type="checkbox"
-            className="form-check-input"
-            id="exampleCheck1"
-          />
-          <label className="form-check-label" for="exampleCheck1">
-            Check me out
-          </label>
+        <div className="mb-3 form-check d-flex justify-content-between">
+          <div>
+            <input
+              type="checkbox"
+              className="form-check-input"
+              id="exampleCheck1"
+            />
+            <label className="form-check-label" for="exampleCheck1">
+              Remember Me
+            </label>
+          </div>
+          <div>
+            <span>Already Have an account? <a href="/login" style={{ color: "white" }} >Login In</a></span>
+          </div>
         </div>
-        <button type="submit" className="btn btn-primary">
-          Submit
+        <button type="submit" className="btn w-100 signupSubmit">
+          Sign Up
         </button>
       </form>
     </div>

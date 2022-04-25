@@ -1,0 +1,24 @@
+.detailModalMain{
+    padding: 2%;
+}
+
+.detailModalMain div{
+    margin: 2% auto;
+}
+
+.detailModalMain h5{
+    text-decoration: underline;
+}
+
+.detailModalMain p{
+    font-size: 1.3rem;
+    margin: 0 0 10px 10px;
+}
+
+.detailInfo div{
+    margin: 10px auto 20px;  
+}
+
+.detailModalPrice h3{
+    margin: 10px 0 0 30px;
+}

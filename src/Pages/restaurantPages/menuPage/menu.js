@@ -1,11 +1,11 @@
 import MenuCard from "../../../components/menuCards/menu";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./menu.css";
 import EditMenuBanner from "../../../components/editMenuModal/editMenuBanner";
 import AddCat from "../../../components/addCategoryModal/addCat.js";
 import image from "../../../assets/burger.jpg";
 import AddDish from "../../../components/addDishes/addDishes";
-
+import { useNavigate } from "react-router-dom";
 
 const data = [
   {
@@ -63,12 +63,18 @@ const data = [
         price: "70$",
         desc: "the tastiest in the world!",
         img: "https://images.pexels.com/photos/1410236/pexels-photo-1410236.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      }
+      },
     ],
   },
 ];
 
 export default function RestaurantMenu() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!localStorage.getItem("restaurant")) {
+      navigate("/login");
+    }
+  });
 
   //this is for banner
   const [show, setShow] = useState(false);
@@ -89,11 +95,10 @@ export default function RestaurantMenu() {
     let temp = menuData;
     temp.push({
       category: cat,
-      items: []
+      items: [],
     });
     setMenuData(temp);
-
-  }
+  };
   //this is for menu card
   const [showAddDish, setShowAddDish] = useState(false);
   const modalDishShow = () => {
@@ -118,7 +123,7 @@ export default function RestaurantMenu() {
         setMenuData(tempSuper);
       }
     }
-  }
+  };
   return (
     <>
       {show ? (
