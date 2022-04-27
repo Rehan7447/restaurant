@@ -8,7 +8,7 @@ import { CardActionArea } from "@mui/material";
 
 export default function MenuCard(props) {
   return (
-    <Card sx={{ maxWidth: 345 }} >
+    <Card sx={{ maxWidth: 345, marginBottom: "30px" }}>
       <CardActionArea>
         <CardMedia
           component="img"

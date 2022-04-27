@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./header.css";
 
 export default function Header() {
@@ -24,7 +25,7 @@ export default function Header() {
     if (logger === "user") {
       return (
         <div>
-          <a href="/orderHistory">Orders</a>
+          <Link to="/orderHistory">Orders</Link>
           <button className="btn btn-danger" onClick={logout}>
             Logout
           </button>
@@ -33,9 +34,9 @@ export default function Header() {
     } else if (logger === "restaurant") {
       return (
         <div>
-          <a href="/restaurantMenuEdit">Menu</a>
-          <a href="/restNewOrders">New Orders</a>
-          <a href="/restAllOrders">All Orders</a>
+          <Link to="/restaurantMenuEdit">Menu</Link>
+          <Link to="/restNewOrders">New Orders</Link>
+          <Link to="/restAllOrders">All Orders</Link>
           <button className="btn btn-danger" onClick={logout}>
             Logout
           </button>
@@ -44,8 +45,8 @@ export default function Header() {
     } else if (logger === "admin") {
       return (
         <div>
-          <a href="/adminRequests">Pending Requests</a>
-          <a href="/adminAll">All Restaurants</a>
+          <Link to="/adminRequests">Pending Requests</Link>
+          <Link to="/adminAll">All Restaurants</Link>
           <button className="btn btn-danger" onClick={logout}>
             Logout
           </button>
@@ -54,17 +55,17 @@ export default function Header() {
     } else if (logger === "") {
       return (
         <div>
-          <a href="/login">Login</a>
-          <a href="/signUp">Register</a>
+          <Link to="/login">Login</Link>
+          <Link to="/signUp">Register</Link>
         </div>
       );
     }
   };
   return (
     <nav>
-      <a href="/" className="nav-logo">
+      <Link to="/" className="nav-logo">
         Logo
-      </a>
+      </Link>
       <div className="nav-links">{<ChangeHeader />}</div>
     </nav>
   );

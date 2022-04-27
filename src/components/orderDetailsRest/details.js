@@ -81,7 +81,7 @@ export default function DetailModal(props) {
               <p>{props.data.Date} </p>
             </div>
             <div className="d-flex">
-              <h5>Order Status: </h5>
+              <h5>Order: </h5>
               <p>{props.data.Status} </p>
             </div>
             <div className="d-flex">
